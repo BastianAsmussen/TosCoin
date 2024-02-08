@@ -1,0 +1,27 @@
+[package]
+name = "tos_coin"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+transactions = []
+blocks = ["transactions"]
+chains = ["blocks"]
+wallets = []
+default = ["transactions", "blocks", "chains", "wallets"]
+
+[dependencies]
+serde = { version = "1.0.196", features = ["derive"] }
+serde_json = "1.0.113"
+anyhow = "1.0.79"
+sha3 = "0.10.8"
+lazy_static = "1.4.0"
+rand_core = { version = "0.6.4", features = ["getrandom"] }
+ed25519-dalek = { version = "2.1.1", features = ["rand_core", "pkcs8", "serde"] }
+thiserror = "1.0.56"
+rand = "0.8.5"
+md5 = "0.7.0"
+
+[[bin]]
+name = "tos_coin"
+path = "src/main.rs"
